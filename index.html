@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Aspiring Cloud Engineer</title>
+    <meta name="description" content="Portofolio Mahasiswa Teknik Informatika - Aspiring Cloud Engineer">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0f172a', // Slate 900
+                            800: '#1e293b', // Slate 800
+                            700: '#334155', // Slate 700
+                        },
+                        neon: {
+                            blue: '#0ea5e9', // Sky 500
+                            purple: '#8b5cf6', // Violet 500
+                            glow: '#38bdf8',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-glow {
+                text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+            }
+            .glass {
+                @apply bg-dark-800/80 backdrop-blur-md border border-white/10;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(14,165,233,0.15)] hover:border-neon-blue/50;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-dark-900 text-slate-300 font-sans antialiased overflow-x-hidden selection:bg-neon-blue selection:text-white">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-neon-purple rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-neon-blue rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-8 left-1/3 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-sm bg-dark-900/80 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span
+                        class="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple text-glow">
+                        Dev.Profile
+                    </span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home"
+                            class="hover:text-neon-blue transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about"
+                            class="hover:text-neon-blue transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills"
+                            class="hover:text-neon-blue transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#projects"
+                            class="hover:text-neon-blue transition-colors px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#contact"
+                        class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-90 transition-opacity">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative z-10 min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0 animate-fade-in-up">
+                <p class="text-neon-blue font-semibold tracking-wide uppercase mb-2">I am</p>
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Ropiza'ul H.A <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">Cloud
+                        Engineer</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Mahasiswa Teknik Informatika yang sedang mendalami infrastruktur jaringan dan otomatisasi untuk
+                    membangun masa depan di Cloud Computing.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#projects"
+                        class="px-8 py-3 rounded-full bg-white text-dark-900 font-bold hover:bg-gray-100 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        Lihat Portofolio
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-3 rounded-full border border-slate-600 text-white font-semibold hover:border-neon-blue hover:text-neon-blue transition-colors">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image / Avatar -->
+            <div class="md:w-1/2 flex justify-center relative animate-fade-in-up" style="animation-delay: 0.2s;">
+                <div class="relative w-64 h-64 md:w-80 md:h-80">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-neon-blue to-neon-purple rounded-full blur-2xl opacity-50">
+                    </div>
+                    <img src="profile.jpg" alt="Profile Picture"
+                        class="relative w-full h-full object-cover rounded-full border-4 border-dark-800 shadow-2xl z-10 hover:scale-105 transition-transform duration-500">
+
+                    <!-- Floating Icons Decoration -->
+                    <div class="absolute -top-4 -right-4 bg-dark-800 p-3 rounded-xl border border-slate-700 shadow-lg animate-bounce"
+                        style="animation-duration: 3s;">
+                        <svg class="w-8 h-8 text-blue-400" fill="none" class="w-6 h-6" stroke="currentColor"
+                            stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-2 -left-4 bg-dark-800 p-3 rounded-xl border border-slate-700 shadow-lg animate-bounce"
+                        style="animation-duration: 4s;">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">About <span
+                    class="text-neon-purple">Me</span></h2>
+
+            <div class="glass p-8 rounded-2xl md:flex items-center gap-8">
+                <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center">
+                    <div
+                        class="w-32 h-32 bg-white/5 rounded-full flex items-center justify-center border border-white/10 overflow-hidden p-4">
+                        <img src="university.png" alt="Universitas Hamzanwadi" class="w-full h-full object-contain">
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Universitas Hamzanwadi</h3>
+                    <p class="text-neon-blue mb-4">Fakultas Teknik &bull; Teknik Informatika</p>
+                    <p class="text-slate-400 leading-relaxed">
+                        Saya adalah mahasiswa yang memiliki ketertarikan mendalam pada dunia <span
+                            class="text-white font-medium">Backend Development</span>, <span
+                            class="text-white font-medium">Jaringan</span>, dan <span
+                            class="text-white font-medium">Cloud Architecture</span>.
+                        Saya percaya bahwa memahami cara kerja infrastruktur di balik aplikasi modern adalah kunci untuk
+                        menciptakan solusi teknologi yang skalabel dan andal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Roadmap Section -->
+    <section id="skills" class="py-20 bg-dark-800/50 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Skill <span
+                        class="text-neon-blue">Roadmap</span></h2>
+                <p class="text-slate-400">Perjalanan pembelajaran saya menuju Cloud Engineering</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Core Skills -->
+                <div class="glass p-6 rounded-xl border-t-4 border-t-green-500 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Core Skills</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-green-500 rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Python</h4>
+                                <p class="text-sm text-slate-500">Programming & Scripting</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-green-500 rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Networking Fundamentals</h4>
+                                <p class="text-sm text-slate-500">Subnetting & IP Addressing</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Currently Learning -->
+                <div class="glass p-6 rounded-xl border-t-4 border-t-neon-blue card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-neon-blue/20 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Currently Learning</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-neon-blue rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Linux SysAdmin</h4>
+                                <p class="text-sm text-slate-500">Operating System Management</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-neon-blue rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Shell Scripting</h4>
+                                <p class="text-sm text-slate-500">Command Line Interface</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Future Goals -->
+                <div class="glass p-6 rounded-xl border-t-4 border-t-neon-purple card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-neon-purple/20 flex items-center justify-center mr-4">
+                            <svg class="w-6 h-6 text-neon-purple" fill="none" class="w-6 h-6" stroke="currentColor"
+                                stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Future Goals</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-neon-purple rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Cloud Platforms</h4>
+                                <p class="text-sm text-slate-500">AWS / Azure / GCP</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-neon-purple rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Containerization</h4>
+                                <p class="text-sm text-slate-500">Docker & Kubernetes</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-neon-purple rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">Infrastructure as Code</h4>
+                                <p class="text-sm text-slate-500">Terraform</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 mt-2 bg-neon-purple rounded-full mr-3"></span>
+                            <div>
+                                <h4 class="text-white font-medium">CI/CD Pipelines</h4>
+                                <p class="text-sm text-slate-500">DevOps Automation</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Featured <span
+                    class="text-neon-blue">Projects</span></h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="group relative bg-dark-800 rounded-2xl overflow-hidden border border-white/5 hover:border-neon-blue/50 transition-all duration-300 hover:shadow-2xl">
+                    <div
+                        class="h-48 bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <svg class="w-16 h-16 text-slate-500 group-hover:text-neon-blue transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span
+                                class="text-xs font-semibold text-neon-blue uppercase tracking-wider">Networking</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Network Topology Design</h3>
+                        <p class="text-slate-400 mb-4">
+                            Perancangan skema jaringan dengan perhitungan subnetting yang efisien dan aman. Termasuk
+                            konfigurasi router dan switch untuk optimasi traffic.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center text-neon-blue hover:text-white transition-colors text-sm font-medium">
+                            Lihat Detail
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="group relative bg-dark-800 rounded-2xl overflow-hidden border border-white/5 hover:border-neon-purple/50 transition-all duration-300 hover:shadow-2xl">
+                    <div
+                        class="h-48 bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <svg class="w-16 h-16 text-slate-500 group-hover:text-neon-purple transition-colors" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span
+                                class="text-xs font-semibold text-neon-purple uppercase tracking-wider">Automation</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Python Automation Script</h3>
+                        <p class="text-slate-400 mb-4">
+                            Skrip Python sederhana untuk mengotomatisasi tugas-tugas dasar seperti backup file otomatis,
+                            dan monitoring status server sederhana.
+                        </p>
+                        <a href="#"
+                            class="inline-flex items-center text-neon-purple hover:text-white transition-colors text-sm font-medium">
+                            Lihat Source Code
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-dark-900 to-dark-800 relative z-10">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">Siap untuk Berkolaborasi?</h2>
+            <p class="text-slate-400 mb-8">
+                Saya selalu terbuka untuk diskusi mengenai teknologi cloud, jaringan, atau peluang proyek menarik
+                lainnya.
+            </p>
+            <a href="mailto:email@example.com"
+                class="inline-block px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-purple rounded-full text-white font-bold text-lg hover:shadow-lg hover:shadow-neon-blue/30 transition-all transform hover:-translate-y-1">
+                Kirim Pesan
+            </a>
+
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors pb-2">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors bg-clip-text">
+                    <span class="sr-only">LinkedIn</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-slate-500">
+                &copy; 2024 Aspiring Cloud Engineer. All rights reserved.
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>
